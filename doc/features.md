@@ -87,7 +87,7 @@ On Linux kernels with Pressure Stall Information (PSI) enabled, the memory
 pressure monitor reads `/proc/pressure/memory`.  `some` measures time when at
 least one task is stalled; `full` measures time when all non-idle tasks are
 stalled and is a useful signal for thrashing.  The `warning` and `critical`
-values use the same 0.0--1.0 percentage convention as the other monitors.
+values use the same 0.0--1.0 fraction convention as the other monitors.
 
 The default scope is `full` and the default window is `avg10`:
 
@@ -98,8 +98,8 @@ pressure {
     logmark  = true
     scope    = "full"    # "some" or "full"
     window   = "avg10"   # "avg10", "avg60", or "avg300"
-    warning  = 0.10      # 0.10 percent
-    critical = 1.00      # 1.00 percent
+    warning  = 0.10      # 10 percent
+    critical = 0.50      # 50 percent
 }
 ```
 

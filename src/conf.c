@@ -302,6 +302,7 @@ int conf_parse_file(uev_ctx_t *ctx, char *file)
 		CFG_END()
 	};
 	cfg_t *cfg, *opt;
+	int rc = 0;
 
 	if (!ctx) {
 		ERROR("Internal error, no event context");
@@ -383,7 +384,7 @@ int conf_parse_file(uev_ctx_t *ctx, char *file)
 	checker(ctx, cfg, "meminfo", meminfo_init);
 #endif
 #ifdef PRESSURE_PLUGIN
-	pressure_checker(ctx, cfg);
+	rc = pressure_checker(ctx, cfg);
 #endif
 #ifdef TEMPMON_PLUGIN
 	tempmon_mark();
@@ -391,7 +392,8 @@ int conf_parse_file(uev_ctx_t *ctx, char *file)
 	tempmon_sweep();
 #endif
 
-	return cfg_free(cfg);
+	cfg_free(cfg);
+	return rc;
 }
 
 /**

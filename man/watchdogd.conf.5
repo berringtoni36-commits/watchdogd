@@ -372,14 +372,14 @@ Enable or disable plugin, default: disabled
 .It Cm interval = Ar SEC
 Poll interval, default: 300 sec
 .It Cm logmark = Ar true | false
-Log both PSI scopes every poll interval.  Default: disabled
+Log the selected PSI scope and window every poll interval.  Default: disabled
 .It Cm scope = Ar some | full
 PSI scope used for warning and critical thresholds.  Default: full
 .It Cm window = Ar avg10 | avg60 | avg300
 PSI rolling time window used for thresholds.  Default: avg10
 .It Cm warning = Ar LEVEL
 High watermark level, alert sent to log.  PSI values are percentages, using
-the same 0.0--1.0 convention as the other monitors.
+the same 0.0--1.0 fraction convention as the other monitors, e.g. 0.10 means 10%.
 .It Cm critical = Ar LEVEL
 Critical watermark level, alert sent to log, followed by reboot or script
 action.  Default: 0.0, disabled.
@@ -601,13 +601,13 @@ meminfo {
 
 # Monitors Linux PSI memory pressure from /proc/pressure/memory
 pressure {
-    enabled  = true
+#    enabled  = true
     interval = 60
     logmark  = false
     scope    = "full"
     window   = "avg10"
     warning  = 0.10
-    critical = 1.00
+    critical = 0.50
 #    script = "/path/to/alt-reboot-action.sh"
 }
 
