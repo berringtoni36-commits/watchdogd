@@ -1,3 +1,19 @@
+# watchdogd
+
+**System monitoring and process supervision for embedded Linux and servers.**
+
+Linux · Watchdog timer · Process heartbeat
+
+[Features](doc/features.md) · [Configuration](watchdogd.conf) · [Examples](examples/) · [Build and install](#build--install)
+
+Read the monitor and reset behavior before configuring the daemon. Start with `watchdogd.conf` and the examples for the intended target.
+
+> Fork under novadusk · Upstream: [troglobit/watchdogd](https://github.com/troglobit/watchdogd) · Branch: `master`. Upstream badges, release links and documentation below describe the original project.
+
+---
+
+## Upstream documentation
+
 System & Process Supervisor for Linux
 =====================================
 [![License Badge][]][License] [![GitHub Status][]][GitHub] [![Coverity Status][]][Coverity Scan]
